@@ -26,6 +26,8 @@ from django.urls import path, include
 urlpatterns = [
     #path('', lambda request: HttpResponse("Главная страница")),
     path('admin/', admin.site.urls),
+    path("", include("moviesapp.urls"),)
+    
     
 ] #+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
