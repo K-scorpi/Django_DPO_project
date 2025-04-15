@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "blog",
+    "rest_framework",
 ]
 
 MIDDLEWARE = [
@@ -57,7 +58,7 @@ ROOT_URLCONF = "mysite.urls"
 TEMPLATES = [ 
     { 
         'BACKEND': 'django.template.backends.django.DjangoTemplates', 
-        #  Add  'TEMPLATE_DIRS' here 
+        #  Add  'TEMPLATE_DIRS' here 
         'DIRS': [TEMPLATES_DIRS], 
         'APP_DIRS': True, 
         'OPTIONS': { 
@@ -125,3 +126,11 @@ STATIC_URL = "static/"
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+REST_FRAMEWORK = { 
+    # Use Django's standard `django.contrib.auth` permissions, 
+    # or allow read-only access for unauthenticated users. 
+    'DEFAULT_PERMISSION_CLASSES': [ 
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly' 
+    ] 
+} 
