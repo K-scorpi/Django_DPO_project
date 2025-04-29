@@ -9,7 +9,8 @@ router = DefaultRouter()
 router.register(r'posts', views.PostViewSet, basename='post') 
  
 urlpatterns = [ 
-    #path('', views.PostList.as_view(), name='home'), 
+    path('', views.PostList.as_view(), name='home'), 
     path('<slug:slug>/', views.PostDetail.as_view(), name='post_detail'), 
-    path('api/v1/', include(router.urls)) 
-] 
+    path('api/v1/', include(router.urls)),
+    path('register/', views.register_request, name='register'),
+]
