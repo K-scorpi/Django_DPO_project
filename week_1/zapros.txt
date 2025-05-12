@@ -1,0 +1,30 @@
+SELECT *
+FROM Authors
+WHERE Genre = 'Психология';
+
+
+SELECT *
+FROM Authors
+WHERE City = 'Нью-Йорк';
+
+
+SELECT SUM(PageCount) AS TotalPages
+FROM Authors;
+
+
+SELECT COUNT(*) AS BookCount
+FROM Authors
+WHERE YearPublished > 2000;
+
+
+UPDATE Authors
+SET AuthorName = 'Петров Алексей'
+WHERE AuthorId = 2;
+
+
+INSERT INTO Authors (AuthorId, AuthorName, City, Genre, BookTitle, YearPublished, PageCount, CopiesSold) VALUES
+(7, 'Dupont Sophie', 'Париж', 'Художественная литература', 'Тайны Лувра', 2010, 400, 1200);
+
+
+DELETE FROM Authors
+WHERE AuthorId = 3;
