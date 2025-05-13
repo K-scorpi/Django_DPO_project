@@ -1,0 +1,18 @@
+# Используем официальный образ Python 
+FROM python:3.13-slim 
+ 
+# Устанавливаем рабочую директорию 
+WORKDIR /app 
+ 
+# Копируем файлы проекта 
+COPY . /app 
+ 
+# Устанавливаем зависимости 
+RUN pip3 install --upgrade pip 
+RUN pip3 install -r requirements.txt 
+ 
+# Открываем порт (если используешь gunicorn или runserver) 
+EXPOSE 8000 
+ 
+# Запуск сервера Django (в проде лучше использовать gunicorn) 
+CMD ["python3", "manage.py", "runserver", "0.0.0.0:8000"] 
